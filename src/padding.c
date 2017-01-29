@@ -1,4 +1,7 @@
 
+// Adds white spaces to the end of a given string
+// Upto 15 Characters.
+
 void padding(char toPad[20])
 {
     int i;

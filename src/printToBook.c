@@ -1,3 +1,5 @@
+// The various changes which are made to the list are saved and the file
+// Phone-Book.txt is overwritten.
 
 void printToBook(void)
 {
@@ -9,7 +11,6 @@ void printToBook(void)
     }
 
     struct Contacts *curr = head;
-
 
     while(curr != NULL)
     {

@@ -1,4 +1,3 @@
-
 void swap(struct Contacts *, struct Contacts *);
 void sort(void);
 
@@ -7,6 +6,7 @@ void load(FILE *book)
     char temp[2];
     char name[20], number[10];
 
+    // To check if the phone-book is empty or not.
     if(fgets(temp, 2, book) == NULL)
     {
         printf("Phone-Book is empty!\n");
@@ -20,6 +20,8 @@ void load(FILE *book)
     curr = newContact;
     head = newContact;
 
+    // scan the file and copy the name and number in each line
+    // to a new node in linked-list.
     while(fscanf(book, "%s\t%s\n", name, number) != EOF)
     {
         strcpy(curr -> name, name);
@@ -37,6 +39,9 @@ void sort(void)
     struct Contacts *curr = head;
     struct Contacts *prev = head;
 
+    // iterate through the linked-list.
+    // sorts the elements in the Linked-List alphabetically
+    // through selection sort.
     while(curr != NULL)
     {
         prev = head;

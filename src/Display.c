@@ -1,11 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
-
-
 void displayBook(void)
 {
+    // if the phone-book is empty.
     if(head == NULL)
     {
         printf("Phone Book is empty!\n");
@@ -15,6 +10,8 @@ void displayBook(void)
     struct Contacts *curr = head;
 
     printf("\nNAME\t\tNUMBER\n");
+
+    // iterate through the linked-list and display the contact.
     while(curr != NULL)
     {
         padding(curr -> name);

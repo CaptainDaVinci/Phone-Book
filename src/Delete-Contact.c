@@ -1,4 +1,3 @@
-
 void delete(char target[])
 {
     if(head == NULL)
@@ -10,8 +9,11 @@ void delete(char target[])
     struct Contacts *curr = head;
     struct Contacts *prev = head;
 
+    // Adds spaces to the end of the given name.
     padding(target);
 
+    // Iterates through the list, to find the target name. If found, free that
+    // Node.
     while(curr != NULL)
     {
         if(strcmp(curr -> name, target) == 0)
