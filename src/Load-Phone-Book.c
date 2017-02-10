@@ -16,7 +16,7 @@ void load(FILE *book)
     rewind(book);
 
     struct Contacts *curr;
-    struct Contacts *newContact = malloc(sizeof(struct Contacts));
+    struct Contacts *newContact = malloc(sizeof( *newContact));
     curr = newContact;
     head = newContact;
 
@@ -27,7 +27,7 @@ void load(FILE *book)
         strcpy(curr -> name, name);
         strcpy(curr -> number, number);
 
-        struct Contacts *newContact = malloc(sizeof(struct Contacts));
+        struct Contacts *newContact = malloc(sizeof( *newContact));
         curr -> next = newContact;
         curr = newContact;
     }

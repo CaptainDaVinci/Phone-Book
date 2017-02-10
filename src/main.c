@@ -42,13 +42,13 @@ int main(void)
     system("clear");
 
     printf("Welcome to Phone Book\n");
-    printf("1. Display contacts\n");
+    start :
+    printf("\n1. Display contacts\n");
     printf("2. Add contact\n");
     printf("3. Search contact\n");
     printf("4. Delete contact\n");
     printf("5. Exit\n");
 
-    start :
     printf("\nChoose your option : ");
     scanf("%d", &option);
 
@@ -79,11 +79,12 @@ int main(void)
                 delete(newName);
                 break;
 
-        case 5: printToBook();
+        case 5: printf("Changes Saved!\n");
+                printToBook();
                 exit(0);
                 break;
 
-        default : printf("Incorrect option!\n");
+        default : printf("Changes not saved !\nIncorrect option!\n");
                   exit(0);
     }
 

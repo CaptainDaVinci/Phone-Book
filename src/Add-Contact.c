@@ -6,7 +6,7 @@ void addContact(char newName[], char newNumber[])
 
     struct Contacts *curr = head;
     struct Contacts *prev = head;
-    struct Contacts *newContact = malloc(sizeof(struct Contacts));
+    struct Contacts *newContact = malloc(sizeof( *newContact));
 
     // copy the name and number given by user to the new node.
     strcpy(newContact -> name, newName);

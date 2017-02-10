@@ -4,6 +4,7 @@
 void printToBook(void)
 {
     FILE *book = fopen("Phone-Book.txt", "w");
+
     if(book == NULL)
     {
         printf("Unable to open file\n");
@@ -11,10 +12,13 @@ void printToBook(void)
     }
 
     struct Contacts *curr = head;
+    rewind(book);
 
     while(curr != NULL)
     {
         fprintf(book, "%s\t%s\n", curr -> name, curr -> number);
         curr = curr -> next;
     }
+
+    fclose(book);
 }
