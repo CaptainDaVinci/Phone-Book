@@ -10,7 +10,7 @@ It uses Linked List data structure to store the data and then perform various op
 ##USAGE
 Compile and run the code as follows:
 ```
-$ gcc main.c -o phonebook
+$ gcc main.c add.c delete.c display.c load.c search.c -o phonebook
 $ ./phonebook
 ```
-select the option '1' to display all the contacts in "**_Phone-Book.txt_**" file. Notice that these are just example values which can be altered. 
+select the option '1' to display all the contacts in "**_Phone-Book.txt_**" file. Notice that these are just example values which can be altered.

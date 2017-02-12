@@ -18,6 +18,8 @@
 #include <ctype.h>
 #include "Phone-Book.h"
 
+void print(void);
+
 int main(void)
 {
     int option;
@@ -34,59 +36,77 @@ int main(void)
 
     // used to load the data from the phone-book into linked-list.
     load(book);
-
-    // sorts the data obtained from the phone-book, in alphabetical order.
-    sort();
     fclose(book);
 
-    system("clear");
 
     printf("Welcome to Phone Book\n");
-    start :
-    printf("\n1. Display contacts\n");
-    printf("2. Add contact\n");
-    printf("3. Search contact\n");
-    printf("4. Delete contact\n");
-    printf("5. Exit\n");
+     while(1)
+     {
+         printf("\n1. Display contacts\n");
+         printf("2. Add contact\n");
+         printf("3. Search contact\n");
+         printf("4. Delete contact\n");
+         printf("5. Exit\n");
 
-    printf("\nChoose your option : ");
-    scanf("%d", &option);
+         printf("\nChoose your option : ");
+         scanf("%d", &option);
 
-    switch(option)
+         switch(option)
+         {
+             case 1: system("clear");
+                     displayBook();
+                     break;
+
+             case 2: printf("Name : ");
+                     scanf("%s", newName);
+                     printf("Phone Number : ");
+                     scanf("%s", newNumber);
+                     addContact(newName, newNumber);
+                     break;
+
+             case 3: printf("Name : ");
+                     scanf("%s", newName);
+                     search(newName);
+                     break;
+
+             case 4: printf("Name : ");
+                     scanf("%s", newName);
+                     delete(newName);
+                     break;
+
+             case 5: printf("Changes Saved!\n");
+                     print();
+                     exit(0);
+                     break;
+
+             default : printf("Changes not saved !\nIncorrect option!\n");
+                       exit(0);
+         }
+    }
+}
+
+// The various changes which are made to the list are saved and the file
+// Phone-Book.txt is overwritten.
+
+void print(void)
+{
+    FILE *book = fopen("Phone-Book.txt", "w");
+
+    if(book == NULL)
     {
-        case 1: system("clear");
-                displayBook();
-                break;
-
-        case 2: printf("Name : ");
-                scanf("%s", newName);
-
-                printf("Phone Number : ");
-                scanf("%s", newNumber);
-
-                addContact(newName, newNumber);
-                break;
-
-        case 3: printf("Name : ");
-                scanf("%s", newName);
-
-                search(newName);
-                break;
-
-        case 4: printf("Name : ");
-                scanf("%s", newName);
-
-                delete(newName);
-                break;
-
-        case 5: printf("Changes Saved!\n");
-                printToBook();
-                exit(0);
-                break;
-
-        default : printf("Changes not saved !\nIncorrect option!\n");
-                  exit(0);
+        printf("Unable to open file\n");
+        exit(1);
     }
 
-    goto start;
+    struct Contacts *curr = head;
+    rewind(book);
+
+    while(curr->next != NULL)
+    {
+        fprintf(book, "%s\t%s\n", curr->name, curr->number);
+        curr = curr->next;
+    }
+    fprintf(book, "%s\t%s", curr->name, curr->number);
+
+    fclose(book);
 }

@@ -1,3 +1,8 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include "Phone-Book.h"
+
 void swap(struct Contacts *, struct Contacts *);
 void sort(void);
 
@@ -10,7 +15,7 @@ void load(FILE *book)
     if(fgets(temp, 2, book) == NULL)
     {
         printf("Phone-Book is empty!\n");
-        exit(0);
+        return ;
     }
 
     rewind(book);
@@ -24,14 +29,14 @@ void load(FILE *book)
     // to a new node in linked-list.
     while(fscanf(book, "%s\t%s\n", name, number) != EOF)
     {
-        strcpy(curr -> name, name);
-        strcpy(curr -> number, number);
+        strcpy(curr->name, name);
+        strcpy(curr->number, number);
 
         struct Contacts *newContact = malloc(sizeof( *newContact));
-        curr -> next = newContact;
+        curr->next = newContact;
         curr = newContact;
     }
-    curr -> next = NULL;
+    curr->next = NULL;
 }
 
 void sort(void)
@@ -47,14 +52,14 @@ void sort(void)
         prev = head;
         while(prev != NULL)
         {
-            if(strcmp(prev -> name, curr -> name) > 0)
+            if(strcmp(prev->name, curr->name) > 0)
             {
                 swap(prev, curr);
             }
-            prev = prev -> next;
+            prev = prev->next;
         }
 
-        curr = curr -> next;
+        curr = curr->next;
     }
 }
 
@@ -63,10 +68,10 @@ void swap(struct Contacts *prev, struct Contacts *curr)
     char tempName[20];
     char tempNumber[10];
 
-    strcpy(tempName, prev -> name);
-    strcpy(tempNumber, prev -> number);
-    strcpy(prev -> name, curr -> name);
-    strcpy(prev -> number, curr -> number);
-    strcpy(curr -> name, tempName);
-    strcpy(curr -> number, tempNumber);
+    strcpy(tempName, prev->name);
+    strcpy(tempNumber, prev->number);
+    strcpy(prev->name, curr->name);
+    strcpy(prev->number, curr->number);
+    strcpy(curr->name, tempName);
+    strcpy(curr->number, tempNumber);
 }

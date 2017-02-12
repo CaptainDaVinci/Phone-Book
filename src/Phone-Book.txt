@@ -1,5 +1,4 @@
-               	
 abc            	123
-lmn            	789
-pqr            	101
-xyz            	456
+def            	456
+ghi            	789
+ymk            	012

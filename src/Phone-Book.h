@@ -1,3 +1,5 @@
+#ifndef __PHONEBOOK_H__
+#define __PHONEBOOK_H__
 
 struct Contacts
 {
@@ -5,13 +7,12 @@ struct Contacts
     char number[10];
     struct Contacts *next;
 };
+struct Contacts *head;
 
-struct Contacts *head = NULL;
+void addContact(char newName[], char newNumber[]);
+void delete(char target[]);
+void load(FILE *book);
+void displayBook(void);
+void search(char target[]);
 
-#include "padding.c"
-#include "Display.c"
-#include "Add-Contact.c"
-#include "Delete-Contact.c"
-#include "Search-Contact.c"
-#include "Load-Phone-Book.c"
-#include "printToBook.c"
+#endif
