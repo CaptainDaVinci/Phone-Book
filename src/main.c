@@ -87,7 +87,6 @@ int main(void)
 
 // The various changes which are made to the list are saved and the file
 // Phone-Book.txt is overwritten.
-
 void print(void)
 {
     FILE *book = fopen("Phone-Book.txt", "w");
