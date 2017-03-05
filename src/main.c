@@ -11,14 +11,9 @@
  *  given to it.
  *
  */
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
 #include "Phone-Book.h"
 
-void print(void);
+void saveChanges(void);
 
 int main(void)
 {
@@ -75,7 +70,7 @@ int main(void)
                      break;
 
              case 5: printf("Changes Saved!\n");
-                     print();
+                     saveChanges();
                      exit(0);
                      break;
 
@@ -87,7 +82,7 @@ int main(void)
 
 // The various changes which are made to the list are saved and the file
 // Phone-Book.txt is overwritten.
-void print(void)
+void saveChanges(void)
 {
     FILE *book = fopen("Phone-Book.txt", "w");
 

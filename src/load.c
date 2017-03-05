@@ -1,10 +1,7 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
 #include "Phone-Book.h"
 
-void swap(struct Contacts *, struct Contacts *);
-void sort(void);
+static void swap(struct Contacts *, struct Contacts *);
+static void sort(void);
 
 void load(FILE *book)
 {

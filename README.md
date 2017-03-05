@@ -20,7 +20,7 @@ $ ./phonebook
 ###WINDOWS
 Simply compile and run the program as follows:
 ```
-$ gcc main.c add.c delete.c display.c load.c search.c -o phonebook
+$ gcc main.c load.c phonebook.c -o phonebook
 $ ./phonebook
 ```
 
