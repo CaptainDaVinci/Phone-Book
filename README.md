@@ -1,4 +1,4 @@
-#INTRODUCTION
+# Introduction
 This is a very basic Phone-Book which can store the first name and the phone number of a person.
 It uses Linked List data structure to store the data and then perform various operations on it such as:
 * Deleting a contact.
@@ -7,9 +7,9 @@ It uses Linked List data structure to store the data and then perform various op
 * Searching a contact.
 * Saving the changes to the file **_Phone-Book.txt_**.
 
-##USAGE
+## Usage
 
-###LINUX
+### Linux
 First you must give permission to execute the file **build.sh**, then complile and run the code as follows:
 ```
 $ chmod +x build.sh
@@ -17,7 +17,7 @@ $ ./build.sh
 $ ./phonebook
 ```
 
-###WINDOWS
+### Windwos
 Simply compile and run the program as follows:
 ```
 $ gcc main.c load.c phonebook.c -o phonebook
