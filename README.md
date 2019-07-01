@@ -17,7 +17,7 @@ $ ./build.sh
 $ ./phonebook
 ```
 
-### Windwos
+### Windows
 Simply compile and run the program as follows:
 ```
 $ gcc main.c load.c phonebook.c -o phonebook
